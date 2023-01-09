@@ -2,21 +2,26 @@
 import classNames from 'classnames';
 import s from './Statistics.module.css';
 
-
-export const Statistics = () => {
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
 
     return ( 
         <div className="container">
-        <h2 className={classNames(s.comp_title)}>Statistics</h2>
+         <h2 className={classNames(s.comp_title)}>Statistics</h2>
 
-        <ul className={classNames(s.list)}>
-            <li className={classNames(s.item)}>Good: 4 </li>
-            <li className={classNames(s.item)}>Neutral: 4</li>
-            <li className={classNames(s.item)}>Bad:  1</li>
-            <li className={classNames(s.item)}>Total: 000  </li>
-            <li className={classNames(s.item)}>Positive feedbasck: </li>
-        </ul>
+            <ul className={classNames(s.list)}>
+                <li className={classNames(s.item)}>Good: {good}</li>
+                <li className={classNames(s.item)}>Neutral: {neutral} </li>
+                <li className={classNames(s.item)}>Bad:  {bad}</li>
+                <li className={classNames(s.item)}>Total: {total} </li>
+                <li className={classNames(s.item)}>Positive feedbasck: {positivePercentage} %</li>
+            </ul>
 
         </div>
     )
 }
+
+// Statistics.PropTypes({
+//     good: PropTypes.number.isRequered,
+// })
+
+export default Statistics;

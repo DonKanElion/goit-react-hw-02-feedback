@@ -1,5 +1,6 @@
 import { FeedBack } from '../components/FeedBack';
-import { Statistics } from '../components/Statistics';
+// import Statistics from '../Statistics';
+
 
 export const App = () => {
   return (
@@ -15,7 +16,7 @@ export const App = () => {
 
       <FeedBack />
 
-      <Statistics />
+      {/* <Statistics good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positivePercentage}></Statistics> */}
       
     </div>
   );
