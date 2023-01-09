@@ -1,16 +1,22 @@
+import { FeedBack } from '../components/FeedBack';
+import { Statistics } from '../components/Statistics';
+
 export const App = () => {
   return (
-    <div
+    <div className='container'
       style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
+        display: 'block',
+        textAlign: 'center',
+        marginBottom: '20px',
+        color: '#010101',
       }}
     >
-      React homework template
+      <h1>React 🛠 homework template 🙀</h1>
+
+      <FeedBack />
+
+      <Statistics />
+      
     </div>
   );
 };
