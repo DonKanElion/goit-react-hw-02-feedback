@@ -1,2 +1,0 @@
-export { FeedBack } from './FeedBack';
-
