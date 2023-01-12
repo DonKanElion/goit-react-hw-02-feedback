@@ -62,7 +62,7 @@ export class App extends Component {
           ></FeedbackOptions>
         </Section>
 
-        <Section title="Statustics">
+        <Section title="Statistics">
           <Statistics
             good={good}
             neutral={neutral}
