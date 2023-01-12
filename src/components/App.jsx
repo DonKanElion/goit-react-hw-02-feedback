@@ -2,23 +2,25 @@ import { Component } from 'react';
 import classNames from 'classnames';
 
 import s from '../components/FeedbackOptions/FeedbackOptions.module.css';
+
+import Section from './Section';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from './Statistics';
 
 export class App extends Component {
   state = {
-    good: 3,
-    neutral: 2,
-    bad: 2,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
   onLeaveFeedback(evt) {
     let key = evt.target.name;
-    this.setState((prevState) => {
+    this.setState(prevState => {
       return {
         [key]: prevState[key] + 1,
-      }
-    })
+      };
+    });
   }
 
   countTotalFeedback() {
@@ -29,11 +31,10 @@ export class App extends Component {
   countPositiveFeedbackPercentage() {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
-    return total > 0 ? Math.round(100 / total * good) : 0;
+    return total > 0 ? Math.round((100 / total) * good) : 0;
 
-        // const positiveFeedback = this.state.good * this.countTotalFeedback();   // також працює 💚
-        // return positiveFeedback.toFixed(2)*100;  // також працює 💚
-
+    // const positiveFeedback = this.state.good * this.countTotalFeedback();   // також працює 💚
+    // return positiveFeedback.toFixed(2)*100;  // також працює 💚
   }
 
   render() {
@@ -41,29 +42,35 @@ export class App extends Component {
     const { good, bad, neutral } = this.state;
 
     return (
-
       <div
         className="container"
         style={{
           display: 'block',
           textAlign: 'center',
+          marginTop: '40px',
           marginBottom: '20px',
           color: '#010101',
         }}
       >
-        <h1>React 🛠 homework template 🙀</h1>
+        {/* <h3>React 🛠 homework template 🙀</h3> */}
         <h2 className={classNames(s.title)}>Please leave feedback 👇</h2>
 
-        {/* <Section title="Please leave feedback 👇"></Section> */}
-        
-        <FeedbackOptions
-          options={keys}
-          onLeaveFeedback={this.onLeaveFeedback.bind(this)}
-        ></FeedbackOptions>
+        <Section title="">
+          <FeedbackOptions
+            options={keys}
+            onLeaveFeedback={this.onLeaveFeedback.bind(this)}
+          ></FeedbackOptions>
+        </Section>
 
-        <Statistics good={good} neutral={neutral} bad={bad} total={this.countTotalFeedback()} positivePercentage={this.countPositiveFeedbackPercentage()}></Statistics>
-
-        {/* <Section title="Statistics"></Section> */}
+        <Section title="Statustics">
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          ></Statistics>
+        </Section>
       </div>
     );
   }
