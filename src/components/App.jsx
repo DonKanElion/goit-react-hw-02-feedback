@@ -63,7 +63,8 @@ export class App extends Component {
           ></FeedbackOptions>
         </Section>
 
-        <Section title="Statistics"> {
+        <Section title="Statistics"> 
+        {
           this.countTotalFeedback() === 0 ? 
           <Notification message="There is no feedback"></Notification> : 
           <Statistics
